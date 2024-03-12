@@ -1,0 +1,10 @@
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.csproj.AssemblyReference.cache
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.Properties.Resources.resources
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.csproj.GenerateResource.cache
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.csproj.CoreCompileInputs.cache
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\bin\Debug\WindowsFormsApp1Part2Gagan2.exe.config
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\bin\Debug\WindowsFormsApp1Part2Gagan2.exe
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\bin\Debug\WindowsFormsApp1Part2Gagan2.pdb
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.exe
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.pdb
+C:\Users\91921\source\repos\WindowsFormsApp1Part2Gagan2\WindowsFormsApp1Part2Gagan2\obj\Debug\WindowsFormsApp1Part2Gagan2.MainForm.resources
