@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsAppGagan11", "WindowsFormsAppGagan11\WindowsFormsAppGagan11.csproj", "{69FD2092-46F1-449D-BD73-A175DCF5B706}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C5A2431-93A6-4262-A4BA-85A45C4F17F0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectShapeNunit", "TestProjectShapeNunit\TestProjectShapeNunit.csproj", "{0EB044FF-7058-4413-800B-F5F58F953F70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69FD2092-46F1-449D-BD73-A175DCF5B706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FD2092-46F1-449D-BD73-A175DCF5B706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FD2092-46F1-449D-BD73-A175DCF5B706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FD2092-46F1-449D-BD73-A175DCF5B706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB044FF-7058-4413-800B-F5F58F953F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB044FF-7058-4413-800B-F5F58F953F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB044FF-7058-4413-800B-F5F58F953F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB044FF-7058-4413-800B-F5F58F953F70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A64F12D-50E7-4D45-99A3-83E78CF30C8F}
+	EndGlobalSection
+EndGlobal
