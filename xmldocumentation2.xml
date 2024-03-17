@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>WindowsFormsApp1Part2Gagan2</name>
+	</assembly>
+	<members>
+		<!-- MainForm class -->
+		<member name="T:WindowsFormsApp1Part2Gagan2.MainForm">
+			<summary>
+				Represents the main form of the application.
+			</summary>
+		</member>
+		<!-- button1_Click_1 method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.button1_Click_1(System.Object,System.EventArgs)">
+			<summary>
+				Handles the click event of button1 to execute programs concurrently from text boxes.
+			</summary>
+		</member>
+		<!-- button2_Click method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.button2_Click(System.Object,System.EventArgs)">
+			<summary>
+				Handles the click event of button2 to load a program from file.
+			</summary>
+		</member>
+		<!-- button3_Click_1 method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.button3_Click_1(System.Object,System.EventArgs)">
+			<summary>
+				Handles the click event of button3 to save the program to a file.
+			</summary>
+		</member>
+		<!-- ExecuteProgram method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.ExecuteProgram(System.Windows.Forms.TextBoxBase)">
+			<summary>
+				Executes a program asynchronously from a TextBoxBase.
+			</summary>
+			<param name="programTextBox">The TextBoxBase containing the program.</param>
+		</member>
+		<!-- ParseAndExecuteCommand method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.ParseAndExecuteCommand(System.String,System.Drawing.Graphics)">
+			<summary>
+				Parses and executes a command.
+			</summary>
+			<param name="command">The command to be parsed and executed.</param>
+			<param name="graphics">The Graphics object used for drawing.</param>
+		</member>
+		<!-- MoveTo method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.MoveTo(System.String[])">
+			<summary>
+				Moves the current drawing position to the specified coordinates.
+			</summary>
+			<param name="parts">The array containing the coordinates.</param>
+		</member>
+		<!-- GetCurrentPosition method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.GetCurrentPosition">
+			<summary>
+				Gets the current drawing position.
+			</summary>
+			<returns>The current drawing position.</returns>
+		</member>
+		<!-- SetFillColor method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SetFillColor(System.String[])">
+			<summary>
+				Sets the fill color for shapes.
+			</summary>
+			<param name="parts">The array containing the color.</param>
+		</member>
+		<!-- SetPenColor method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SetPenColor(System.String[])">
+			<summary>
+				Sets the pen color for drawing.
+			</summary>
+			<param name="parts">The array containing the color.</param>
+		</member>
+		<!-- DrawTo method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DrawTo(System.String[])">
+			<summary>
+				Draws a line to the specified coordinates.
+			</summary>
+			<param name="parts">The array containing the coordinates.</param>
+		</member>
+		<!-- SetLineWidth method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SetLineWidth(System.String[])">
+			<summary>
+				Sets the line width for drawing.
+			</summary>
+			<param name="parts">The array containing the line width.</param>
+		</member>
+		<!-- DrawSquare method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DrawSquare(System.String[])">
+			<summary>
+				Draws a square with the specified side length.
+			</summary>
+			<param name="parts">The array containing the side length.</param>
+		</member>
+		<!-- DrawRectangle method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DrawRectangle(System.String[])">
+			<summary>
+				Draws a rectangle with the specified width and height.
+			</summary>
+			<param name="parts">The array containing the width and height.</param>
+		</member>
+		<!-- DrawCircle method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DrawCircle(System.String[])">
+			<summary>
+				Draws a circle with the specified radius.
+			</summary>
+			<param name="parts">The array containing the radius.</param>
+		</member>
+		<!-- DrawEllipse method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DrawEllipse(System.String[])">
+			<summary>
+				Draws an ellipse with the specified width and height.
+			</summary>
+			<param name="parts">The array containing the width and height.</param>
+		</member>
+		<!-- DrawTriangle method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DrawTriangle">
+			<summary>
+				Draws a triangle.
+			</summary>
+		</member>
+		<!-- ClearDrawingArea method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.ClearDrawingArea">
+			<summary>
+				Clears the drawing area.
+			</summary>
+		</member>
+		<!-- ResetPenPosition method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.ResetPenPosition">
+			<summary>
+				Resets the pen position to the origin.
+			</summary>
+		</member>
+		<!-- SetFillMode method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SetFillMode(System.String[])">
+			<summary>
+				Sets the fill mode for shapes.
+			</summary>
+			<param name="parts">The array containing the fill mode.</param>
+		</member>
+		<!-- SaveProgramToFile method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SaveProgramToFile">
+			<summary>
+				Saves the program to a file.
+			</summary>
+		</member>
+		<!-- LoadProgramFromFile method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.LoadProgramFromFile">
+			<summary>
+				Loads a program from a file.
+			</summary>
+		</member>
+		<!-- DefineVariable method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.DefineVariable(System.String[])">
+			<summary>
+				Defines a variable with the specified name and value.
+			</summary>
+			<param name="parts">The array containing the variable name and value.</param>
+		</member>
+		<!-- ExecuteIfStatement method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.ExecuteIfStatement(System.String)">
+			<summary>
+				Executes an if statement based on the provided condition.
+			</summary>
+			<param name="command">The if statement command.</param>
+		</member>
+		<!-- EvaluateCondition method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.EvaluateCondition(System.String)">
+			<summary>
+				Evaluates a condition.
+			</summary>
+			<param name="condition">The condition to be evaluated.</param>
+			<returns>True if the condition is true, otherwise false.</returns>
+		</member>
+		<!-- ExecuteLoop method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.ExecuteLoop(System.String)">
+			<summary>
+				Executes a loop based on the provided condition.
+			</summary>
+			<param name="loopStartCommand">The loop start command.</param>
+		</member>
+		<!-- SyntaxCheck method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SyntaxCheck">
+			<summary>
+				Performs syntax checking for all program inputs.
+			</summary>
+		</member>
+		<!-- SyntaxCheckForInput method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.SyntaxCheckForInput(System.Windows.Forms.TextBoxBase,System.String)">
+			<summary>
+				Performs syntax checking for a specific program input.
+			</summary>
+			<param name="textBox">The TextBoxBase containing the program.</param>
+			<param name="inputName">The name of the program input.</param>
+			<returns>True if syntax check passed, otherwise false.</returns>
+		</member>
+		<!-- MainForm_Load method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.MainForm_Load(System.Object,System.EventArgs)">
+			<summary>
+				Handles the load event of the MainForm.
+			</summary>
+		</member>
+		<!-- textBox2_TextChanged method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.textBox2_TextChanged(System.Object,System.EventArgs)">
+			<summary>
+				Handles the text changed event of textBox2.
+			</summary>
+		</member>
+		<!-- button4_Click method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.button4_Click(System.Object,System.EventArgs)">
+			<summary>
+				Handles the click event of button4 to perform syntax check.
+			</summary>
+		</member>
+		<!-- textBox1_TextChanged method -->
+		<member name="M:WindowsFormsApp1Part2Gagan2.MainForm.textBox1_TextChanged(System.Object,System.EventArgs)">
+			<summary>
+				Handles the text changed event of textBox1.
+			</summary>
+		</member>
+	</members>
+</doc>
