@@ -1,152 +1,154 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <doc>
-	<assembly>
-		<name>TestProjectShapedrawing</name>
-	</assembly>
-	<members>
-		<!-- MainFormTests class -->
-		<member name="T:TestProjectShapedrawing.MainFormTests">
-			<summary>
-				Represents a class containing unit tests for the MainForm class.
-			</summary>
-		</member>
-		<!-- Setup method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.Setup">
-			<summary>
-				Initializes the test environment before each test method is executed.
-			</summary>
-		</member>
-		<!-- TestMoveTo_ValidInput method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestMoveTo_ValidInput">
-			<summary>
-				Tests the MoveTo method with valid input parameters.
-			</summary>
-		</member>
-		<!-- TestMoveTo_InvalidInput method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestMoveTo_InvalidInput">
-			<summary>
-				Tests the MoveTo method with invalid input parameters.
-			</summary>
-		</member>
-		<!-- TestSetFillColor method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestSetFillColor">
-			<summary>
-				Tests the SetFillColor method.
-			</summary>
-		</member>
-		<!-- TestSetPenColor method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestSetPenColor">
-			<summary>
-				Tests the SetPenColor method.
-			</summary>
-		</member>
-		<!-- TestDrawTo method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDrawTo">
-			<summary>
-				Tests the DrawTo method.
-			</summary>
-		</member>
-		<!-- TestSetLineWidth method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestSetLineWidth">
-			<summary>
-				Tests the SetLineWidth method.
-			</summary>
-		</member>
-		<!-- TestDrawSquare method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDrawSquare">
-			<summary>
-				Tests the DrawSquare method.
-			</summary>
-		</member>
-		<!-- TestDrawRectangle method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDrawRectangle">
-			<summary>
-				Tests the DrawRectangle method.
-			</summary>
-		</member>
-		<!-- TestDrawCircle method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDrawCircle">
-			<summary>
-				Tests the DrawCircle method.
-			</summary>
-		</member>
-		<!-- TestDrawEllipse method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDrawEllipse">
-			<summary>
-				Tests the DrawEllipse method.
-			</summary>
-		</member>
-		<!-- TestDrawTriangle method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDrawTriangle">
-			<summary>
-				Tests the DrawTriangle method.
-			</summary>
-		</member>
-		<!-- TestClearDrawingArea method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestClearDrawingArea">
-			<summary>
-				Tests the ClearDrawingArea method.
-			</summary>
-		</member>
-		<!-- TestResetPenPosition method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestResetPenPosition">
-			<summary>
-				Tests the ResetPenPosition method.
-			</summary>
-		</member>
-		<!-- TestSetFillMode_On method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestSetFillMode_On">
-			<summary>
-				Tests the SetFillMode method with 'on' parameter.
-			</summary>
-		</member>
-		<!-- TestSetFillMode_Off method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestSetFillMode_Off">
-			<summary>
-				Tests the SetFillMode method with 'off' parameter.
-			</summary>
-		</member>
-		<!-- TestSaveProgramToFile method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestSaveProgramToFile">
-			<summary>
-				Tests the SaveProgramToFile method.
-			</summary>
-		</member>
-		<!-- TestLoadProgramFromFile method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestLoadProgramFromFile">
-			<summary>
-				Tests the LoadProgramFromFile method.
-			</summary>
-		</member>
-		<!-- TestDefineVariable method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestDefineVariable">
-			<summary>
-				Tests the DefineVariable method.
-			</summary>
-		</member>
-		<!-- TestExecuteIfStatement_TrueCondition method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestExecuteIfStatement_TrueCondition">
-			<summary>
-				Tests the ExecuteIfStatement method with a true condition.
-			</summary>
-		</member>
-		<!-- TestExecuteIfStatement_FalseCondition method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestExecuteIfStatement_FalseCondition">
-			<summary>
-				Tests the ExecuteIfStatement method with a false condition.
-			</summary>
-		</member>
-		<!-- TestEvaluateCondition method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestEvaluateCondition">
-			<summary>
-				Tests the EvaluateCondition method.
-			</summary>
-		</member>
-		<!-- TestExecuteLoop method -->
-		<member name="M:TestProjectShapedrawing.MainFormTests.TestExecuteLoop">
-			<summary>
-				Tests the ExecuteLoop method.
-			</summary>
-		</member>
-	</members>
+  <assembly>
+    <name>UnitTests</name>
+  </assembly>
+  <members>
+    <!-- MainFormTests class -->
+    <member name="T:UnitTests.MainFormTests">
+      <summary>
+        Represents a class containing unit tests for the MainForm class.
+      </summary>
+    </member>
+    
+    <!-- Setup method -->
+    <member name="M:UnitTests.MainFormTests.Setup">
+      <summary>
+        Sets up the test fixture by creating a new instance of MainForm.
+      </summary>
+    </member>
+    
+    <!-- TestDrawRectangle_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestDrawRectangle_ValidInput">
+      <summary>
+        Tests the DrawRectangle method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestDrawCircle_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestDrawCircle_ValidInput">
+      <summary>
+        Tests the DrawCircle method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestDrawEllipse_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestDrawEllipse_ValidInput">
+      <summary>
+        Tests the DrawEllipse method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestDrawTriangle_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestDrawTriangle_ValidInput">
+      <summary>
+        Tests the DrawTriangle method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestSetFillColor_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestSetFillColor_ValidInput">
+      <summary>
+        Tests the SetFillColor method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestSetFillMode_On method -->
+    <member name="M:UnitTests.MainFormTests.TestSetFillMode_On">
+      <summary>
+        Tests the SetFillMode method of MainForm with the 'on' parameter.
+      </summary>
+    </member>
+    
+    <!-- TestSetFillMode_Off method -->
+    <member name="M:UnitTests.MainFormTests.TestSetFillMode_Off">
+      <summary>
+        Tests the SetFillMode method of MainForm with the 'off' parameter.
+      </summary>
+    </member>
+    
+    <!-- TestDefineVariable_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestDefineVariable_ValidInput">
+      <summary>
+        Tests the DefineVariable method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestDefineVariable_InvalidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestDefineVariable_InvalidInput">
+      <summary>
+        Tests the DefineVariable method of MainForm with invalid input.
+      </summary>
+    </member>
+    
+    <!-- TestEvaluateCondition_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestEvaluateCondition_ValidInput">
+      <summary>
+        Tests the EvaluateCondition method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestEvaluateCondition_InvalidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestEvaluateCondition_InvalidInput">
+      <summary>
+        Tests the EvaluateCondition method of MainForm with invalid input.
+      </summary>
+    </member>
+    
+    <!-- ExecuteWhileLoop_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.ExecuteWhileLoop_ValidInput">
+      <summary>
+        Tests the ExecuteWhileLoop method of MainForm with valid input.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteIfStatement_IfConditionTrue method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteIfStatement_IfConditionTrue">
+      <summary>
+        Tests the ExecuteIfStatement method of MainForm with a true if condition.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteIfStatement_IfConditionFalse method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteIfStatement_IfConditionFalse">
+      <summary>
+        Tests the ExecuteIfStatement method of MainForm with a false if condition.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteIfElseStatement_IfConditionTrue method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteIfElseStatement_IfConditionTrue">
+      <summary>
+        Tests the ExecuteIfStatement method of MainForm with a true if-else condition.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteIfElseStatement_IfConditionFalse method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteIfElseStatement_IfConditionFalse">
+      <summary>
+        Tests the ExecuteIfStatement method of MainForm with a false if-else condition.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteElseIfStatement_FirstConditionTrue method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteElseIfStatement_FirstConditionTrue">
+      <summary>
+        Tests the ExecuteIfStatement method of MainForm with the first condition being true in an else-if block.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteElseIfStatement_SecondConditionTrue method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteElseIfStatement_SecondConditionTrue">
+      <summary>
+        Tests the ExecuteIfStatement method of MainForm with the second condition being true in an else-if block.
+      </summary>
+    </member>
+    
+    <!-- TestExecuteMethod_ValidInput method -->
+    <member name="M:UnitTests.MainFormTests.TestExecuteMethod_ValidInput">
+      <summary>
+        Tests the ParseAndExecuteCommand method of MainForm with a valid method command.
+      </summary>
+    </member>
+  </members>
 </doc>
