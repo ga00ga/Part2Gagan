@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -68,13 +68,109 @@ namespace WindowsFormsApp1Part2Gagan2
                 }
             });
         }
+        public void ExecuteWhileLoop(string loopStartCommand)
+        {
+            // Check if the loopStartCommand contains "While"
+            if (!loopStartCommand.Contains("While"))
+            {
+                MessageBox.Show("Invalid while loop syntax: 'While' keyword missing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Extract condition from loop command
+            int whileIndex = loopStartCommand.IndexOf("While");
+            string initializationCommand = loopStartCommand.Substring(0, whileIndex).Trim();
+            string condition = loopStartCommand.Substring(whileIndex + 5).Trim();
+
+            // Initialize variable value dynamically
+            try
+            {
+                ParseAndExecuteCommand(initializationCommand, graphics);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing variable: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Execute loop until condition is false
+            while (EvaluateCondition(condition))
+            {
+                // Execute the command to draw a circle with radius 'a'
+                try
+                {
+                    // Check if 'a' is a valid variable name in the variables dictionary
+                    if (variables.ContainsKey("a"))
+                    {
+                        // Get the value of 'a' from the variables dictionary
+                        int radius = variables["a"];
+
+                        // Draw the circle with radius 'a'
+                        DrawCircle(radius);
+
+                        // Increment the value of 'a' by 10 for the next iteration
+                        if (variables.ContainsKey("a"))
+                        {
+                            // Get the value of 'a' from the variables dictionary and increment by 10
+                            variables["a"] += 10;
+                        }
+                        else
+                        {
+                            // If 'a' is not found in the variables dictionary, show an error message
+                            MessageBox.Show("Variable 'a' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error executing command: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+        private bool EvaluateLoopCondition(string variableName, string comparisonOperator, int limitValue)
+        {
+            if (!variables.ContainsKey(variableName))
+            {
+                MessageBox.Show($"Variable '{variableName}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            int variableValue = variables[variableName];
+
+            switch (comparisonOperator)
+            {
+                case "<":
+                    return variableValue < limitValue;
+                case "<=":
+                    return variableValue <= limitValue;
+                case ">":
+                    return variableValue > limitValue;
+                case ">=":
+                    return variableValue >= limitValue;
+                default:
+                    MessageBox.Show("Invalid comparison operator.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+            }
+        }
+
+
+
+
+
+
 
 
         public void ParseAndExecuteCommand(string command, Graphics graphics)
         {
             string[] parts = command.Split(' ');
 
+
             string keyword = parts[0].ToLower();
+         
             switch (keyword)
             {
                 case "position":
@@ -89,9 +185,23 @@ namespace WindowsFormsApp1Part2Gagan2
                 case "rectangle":
                     DrawRectangle(parts);
                     break;
+
                 case "circle":
-                    DrawCircle(parts);
+                    if (parts.Length == 2 && variables.ContainsKey(parts[1]))
+                    {
+                        int radius = variables[parts[1]];
+                        DrawCircle(radius);
+                    }
+                    else if (parts.Length == 2 && int.TryParse(parts[1], out int radiusValue))
+                    {
+                        DrawCircle(radiusValue);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid command format for circle.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
+                   
                 case "triangle":
                     DrawTriangle();
                     break;
@@ -107,8 +217,12 @@ namespace WindowsFormsApp1Part2Gagan2
                 case "if":
                     ExecuteIfStatement(command);
                     break;
-                case "loop":
-                    ExecuteLoop(command);
+                //case "loop":
+                //  ExecuteLoop(command);
+                //break;
+               
+                case "while":
+                    ExecuteWhileLoop(command);
                     break;
                 case "endloop":
                 
@@ -207,11 +321,9 @@ namespace WindowsFormsApp1Part2Gagan2
                 graphics.DrawRectangle(pen, currentPosition.X, currentPosition.Y, width, height);
         }
 
-        public void DrawCircle(string[] parts)
+        public void DrawCircle(int radius)
         {
-            int radius = int.Parse(parts[1]);
-
-            MoveTo(parts); // Call MoveTo method before drawing the circle
+            MoveTo(new string[] { "position", (currentPosition.X + radius).ToString(), currentPosition.Y.ToString() });
 
             if (fillShape)
                 graphics.FillEllipse(new SolidBrush(pen.Color), currentPosition.X - radius, currentPosition.Y - radius, radius * 2, radius * 2);
@@ -348,13 +460,36 @@ namespace WindowsFormsApp1Part2Gagan2
             }
         }
 
+
+
         public void ExecuteIfStatement(string command)
         {
             // Extract condition from if statement
-            string condition = command.Substring(command.IndexOf("if") + 2, command.IndexOf("endif") - command.IndexOf("if") - 2);
+            int ifIndex = command.IndexOf("if");
+            int endifIndex = command.IndexOf("endif");
 
-            // Evaluate condition
-            if (EvaluateCondition(condition))
+            if (ifIndex == -1 || endifIndex == -1)
+            {
+                //MessageBox.Show("Invalid 'if' statement. 'if' or 'endif' keyword missing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string condition = command.Substring(ifIndex + 2, endifIndex - ifIndex - 2);
+
+            // Remove leading and trailing whitespace
+            condition = condition.Trim();
+
+            // Debugging: Display the extracted condition
+            MessageBox.Show($"Extracted condition: {condition}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Evaluate the condition
+            bool conditionResult = EvaluateCondition(condition);
+
+            // Debugging: Display the result of the condition evaluation
+            MessageBox.Show($"Condition Result: {conditionResult}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // If condition is true, execute the commands between if and endif
+            if (conditionResult)
             {
                 // Execute lines between if and endif
                 int startIndex = programCommands.IndexOf(command) + 1;
@@ -362,10 +497,23 @@ namespace WindowsFormsApp1Part2Gagan2
 
                 for (int i = startIndex; i < endIndex; i++)
                 {
-                   // ParseAndExecuteCommand(programCommands[i, graphics]);
+                    try
+                    {
+                        ParseAndExecuteCommand(programCommands[i], graphics);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error executing command: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
                 }
             }
         }
+
+
+
+
+
 
         public bool EvaluateCondition(string condition)
         {
@@ -404,41 +552,7 @@ namespace WindowsFormsApp1Part2Gagan2
             }
         }
 
-        public void ExecuteLoop(string loopStartCommand)
-        {
-            // Extract condition from loop command
-            string condition = loopStartCommand.Substring(loopStartCommand.IndexOf("loop") + 4);
-
-            // Execute loop until condition is false
-            while (EvaluateCondition(condition))
-            {
-                // Find the index of the loop start command
-                int startIndex = programCommands.IndexOf(loopStartCommand);
-
-                // Find the index of the endloop command
-                int endIndex = programCommands.IndexOf("endloop");
-
-                // If the endloop command is not found or it comes before the loop start command, break the loop
-                if (endIndex == -1 || endIndex < startIndex)
-                {
-                    MessageBox.Show("Endloop command not found or misplaced.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                }
-
-                // Execute lines between loop and endloop
-                for (int i = startIndex + 1; i < endIndex; i++)
-                {
-                    try
-                    {
-                        ParseAndExecuteCommand(programCommands[i], graphics);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error executing command: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
+        
 
         public Dictionary<string, Func<string[], bool>> syntaxRules = new Dictionary<string, Func<string[], bool>>
         {
@@ -446,12 +560,12 @@ namespace WindowsFormsApp1Part2Gagan2
             { "pen", parts => parts.Length == 2 },
             { "draw", parts => parts.Length == 3 && float.TryParse(parts[1], out _) && float.TryParse(parts[2], out _) },
             { "rectangle", parts => parts.Length == 3 && int.TryParse(parts[1], out _) && int.TryParse(parts[2], out _) },
-            { "circle", parts => parts.Length == 4 && int.TryParse(parts[1], out _) },
+            { "circle", parts => parts.Length == 2 },
             { "triangle", parts => parts.Length == 4 && int.TryParse(parts[1], out _) },
             { "clear", parts => true }, // No parameters for clear
             { "reset", parts => true }, // No parameters for reset
             { "fill", parts => parts.Length == 2 && (parts[1].ToLower() == "on" || parts[1].ToLower() == "off") },
-            { "if", parts => parts.Length >= 4 && parts.Contains("endif") }, // Simple check for if statement
+            { "if", parts => true }, // Simple check for if statement
             { "loop", parts => parts.Length >= 3 && parts.Contains("endloop") }, // Simple check for loop statement
             { "method", parts => false }, // Not implemented, always returns false
             { "endmethod", parts => false }, // Not implemented, always returns false
@@ -459,11 +573,14 @@ namespace WindowsFormsApp1Part2Gagan2
             { "square", parts => parts.Length == 2 && int.TryParse(parts[1], out _) },
             { "linewidth", parts => parts.Length == 2 && int.TryParse(parts[1], out _) },
             { "ellipse", parts => parts.Length == 3 && int.TryParse(parts[1], out _) && int.TryParse(parts[2], out _) },
+            { "while", parts => true },
+            { "a", parts => true},
+            { "endwhile", parts => true },
+            { "endif", parts => true },
             { "fillcolor", parts => parts.Length == 2 } // Assuming fillcolor command takes only one argument
         };
 
  
-
         public void SyntaxCheck()
         {
             // Perform syntax check for txtProgram
