@@ -1,25 +1,21 @@
 using NUnit.Framework;
-using System;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 using WindowsFormsApp1Part2Gagan2;
 
 namespace UnitTests
 {
-    [TestClass]
+    [TestFixture]
     public class MainFormTests
     {
         private MainForm mainForm;
 
-        [TestInitialize]
+        [SetUp]
         public void Setup()
         {
             mainForm = new MainForm();
         }
 
-        [TestMethod]
+        [Test]
         public void TestDrawRectangle_ValidInput()
         {
             // Arrange
@@ -29,25 +25,23 @@ namespace UnitTests
             mainForm.DrawRectangle(parts);
 
             // Assert
-            // Check if rectangle drawn at correct position
             // No direct way to assert graphics operations, consider adding assertion if feasible
         }
 
-        [TestMethod]
+        [Test]
         public void TestDrawCircle_ValidInput()
         {
             // Arrange
             string[] parts = { "circle", "50" };
 
             // Act
-            mainForm.DrawCircle(parts);
+            mainForm.DrawCircle(50);
 
             // Assert
-            // Check if circle drawn at correct position
             // No direct way to assert graphics operations, consider adding assertion if feasible
         }
 
-        [TestMethod]
+        [Test]
         public void TestDrawEllipse_ValidInput()
         {
             // Arrange
@@ -57,24 +51,20 @@ namespace UnitTests
             mainForm.DrawEllipse(parts);
 
             // Assert
-            // Check if ellipse drawn at correct position
             // No direct way to assert graphics operations, consider adding assertion if feasible
         }
 
-        [TestMethod]
+        [Test]
         public void TestDrawTriangle_ValidInput()
         {
-            // Arrange
-
             // Act
             mainForm.DrawTriangle();
 
             // Assert
-            // Check if triangle drawn at correct position
             // No direct way to assert graphics operations, consider adding assertion if feasible
         }
 
-        [TestMethod]
+        [Test]
         public void TestSetFillColor_ValidInput()
         {
             // Arrange
@@ -87,7 +77,7 @@ namespace UnitTests
             Assert.AreEqual(Color.Red, mainForm.pen.Color);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSetFillMode_On()
         {
             // Arrange
@@ -100,7 +90,7 @@ namespace UnitTests
             Assert.IsTrue(mainForm.fillShape);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSetFillMode_Off()
         {
             // Arrange
@@ -113,11 +103,9 @@ namespace UnitTests
             Assert.IsFalse(mainForm.fillShape);
         }
 
-        [TestMethod]
+        [Test]
         public void TestDefineVariable_ValidInput()
         {
-            // Arrange
-
             // Act
             mainForm.DefineVariable(new string[] { "variable", "testVar", "10" });
 
@@ -126,11 +114,9 @@ namespace UnitTests
             Assert.AreEqual(10, mainForm.variables["testVar"]);
         }
 
-        [TestMethod]
+        [Test]
         public void TestDefineVariable_InvalidInput()
         {
-            // Arrange
-
             // Act
             mainForm.DefineVariable(new string[] { "variable", "testVar", "notAnInteger" });
 
@@ -138,7 +124,7 @@ namespace UnitTests
             Assert.IsFalse(mainForm.variables.ContainsKey("testVar"));
         }
 
-        [TestMethod]
+        [Test]
         public void TestEvaluateCondition_ValidInput()
         {
             // Arrange
@@ -151,16 +137,140 @@ namespace UnitTests
             Assert.IsTrue(result);
         }
 
-        [TestMethod]
+        [Test]
         public void TestEvaluateCondition_InvalidInput()
         {
-            // Arrange
-
             // Act
             bool result = mainForm.EvaluateCondition("testVar == 10");
 
             // Assert
             Assert.IsFalse(result);
+        }
+        [TestFixture]
+        public class MainFormTests
+        {
+            private MainForm mainForm;
+
+            [SetUp]
+            public void Setup()
+            {
+                mainForm = new MainForm();
+            }
+
+            [Test]
+            public void TestExecuteWhileLoop_ValidInput()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 0);
+                string loopCommand = "variable a 0 while a < 100 a = a + 10 endwhile";
+
+                // Act
+                mainForm.ExecuteWhileLoop(loopCommand);
+
+                // Assert
+                Assert.IsTrue(mainForm.variables.ContainsKey("a"));
+                Assert.AreEqual(100, mainForm.variables["a"]);
+            }
+
+            [Test]
+            public void TestExecuteIfStatement_IfConditionTrue()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 5);
+                string ifCommand = "if a == 5 draw 50 50";
+
+                // Act
+                mainForm.ExecuteIfStatement(ifCommand);
+
+                // Assert
+                // No direct way to assert graphics operations, consider adding assertion if feasible
+            }
+
+            [Test]
+            public void TestExecuteIfStatement_IfConditionFalse()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 10);
+                string ifCommand = "if a == 5 draw 50 50";
+
+                // Act
+                mainForm.ExecuteIfStatement(ifCommand);
+
+                // Assert
+                // No direct way to assert graphics operations, consider adding assertion if feasible
+            }
+
+            [Test]
+            public void TestExecuteIfElseStatement_IfConditionTrue()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 5);
+                string ifElseCommand = "if a == 5 draw 50 50 else draw 100 100 endif";
+
+                // Act
+                mainForm.ExecuteIfStatement(ifElseCommand);
+
+                // Assert
+                // No direct way to assert graphics operations, consider adding assertion if feasible
+            }
+
+            [Test]
+            public void TestExecuteIfElseStatement_IfConditionFalse()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 10);
+                string ifElseCommand = "if a == 5 draw 50 50 else draw 100 100 endif";
+
+                // Act
+                mainForm.ExecuteIfStatement(ifElseCommand);
+
+                // Assert
+                // No direct way to assert graphics operations, consider adding assertion if feasible
+            }
+
+            [Test]
+            public void TestExecuteElseIfStatement_FirstConditionTrue()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 5);
+                string elseIfCommand = "if a == 5 draw 50 50 elseif a == 10 draw 100 100 endif";
+
+                // Act
+                mainForm.ExecuteIfStatement(elseIfCommand);
+
+                // Assert
+                // No direct way to assert graphics operations, consider adding assertion if feasible
+            }
+
+            [Test]
+            public void TestExecuteElseIfStatement_SecondConditionTrue()
+            {
+                // Arrange
+                mainForm.variables.Add("a", 10);
+                string elseIfCommand = "if a == 5 draw 50 50 elseif a == 10 draw 100 100 endif";
+
+                // Act
+                mainForm.ExecuteIfStatement(elseIfCommand);
+
+                // Assert
+                // No direct way to assert graphics operations, consider adding assertion if feasible
+            }
+
+            [Test]
+            public void TestExecuteMethod_ValidInput()
+            {
+                // Arrange
+                string methodCommand = "method method1 variable b 10 variable c 20 endmethod";
+
+                // Act
+                mainForm.ParseAndExecuteCommand(methodCommand, mainForm.graphics);
+
+                // Assert
+                Assert.IsTrue(mainForm.variables.ContainsKey("b"));
+                Assert.IsTrue(mainForm.variables.ContainsKey("c"));
+                Assert.AreEqual(10, mainForm.variables["b"]);
+                Assert.AreEqual(20, mainForm.variables["c"]);
+            }
         }
     }
 }
